@@ -1,0 +1,114 @@
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma;
+  background: #f4f4f4;
+  overflow: hidden;
+}
+
+h2 {
+  color: #8e7dff;
+  margin-bottom: 20px;
+}
+
+/* CENTRALIZA NA TELA */
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  background: white;
+  width: 350px;
+  padding: 40px; /* diminui um pouco pra não ficar gigante */
+  border-radius: 15px;
+
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+/* INPUTS E BOTÃO IGUAIS */
+input,
+button {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  box-sizing: border-box; /* ESSENCIAL */
+}
+
+/* INPUT */
+input {
+  border: 1px solid #ddd;
+  background: #ffffff;
+  color: #333;
+  outline: none;
+}
+
+/* placeholder */
+input::placeholder {
+  color: #999;
+}
+
+/* efeito ao clicar */
+input:focus {
+  border: 1px solid #8e7dff;
+  box-shadow: 0 0 5px rgba(142, 125, 255, 0.3);
+}
+
+/* BOTÃO */
+button {
+  border: none;
+  background: #8e7dff;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* botão alternar */
+.toggle-btn {
+  background: transparent;
+  color: #8e7dff;
+  margin-top: 5px;
+}
+
+/* mensagem */
+.message {
+  margin-top: 15px;
+}
+
+.success {
+  color: green;
+}
+
+.error {
+  color: red;
+}
+
+/* botão sair */
+.logout {
+  margin-top: 20px;
+}
+
+/* limpar root */
+#root {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+button:hover {
+  background: #7a6af0; /* roxo mais escuro */
+}
+
+.toggle-text {
+  margin-top: 10px;
+  color: #8e7dff;
+  font-size: 14px;
+  font-weight: 500; /* mais grossinha */
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.toggle-text:hover {
+  opacity: 0.7;
+}
