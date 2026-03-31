@@ -12,9 +12,11 @@ function AuthForm() {
 
   const [message, setMessage] = useState("");
   const [isError, setIsError] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   function handleSubmit(e) {
     e.preventDefault();
+    setLoading(true);
 
     if (isLogin) {
       signInWithEmailAndPassword(auth, email, password)
@@ -27,7 +29,8 @@ function AuthForm() {
         .catch(() => {
           setMessage("Erro ao acessar!");
           setIsError(true);
-        });
+        })
+        .finally(() => setLoading(false));
     } else {
       createUserWithEmailAndPassword(auth, email, password)
         .then(() => {
@@ -39,8 +42,19 @@ function AuthForm() {
         .catch(() => {
           setMessage("Erro ao cadastrar!");
           setIsError(true);
-        });
+        })
+        .finally(() => setLoading(false));
     }
+  }
+
+  // 🔄 TELA DE LOADING
+  if (loading) {
+    return (
+      <div className="loading">
+        <img src="/loading.gif" alt="Carregando..." />
+        <p>Carregando...</p>
+      </div>
+    );
   }
 
   return (
@@ -69,20 +83,20 @@ function AuthForm() {
         </button>
       </form>
 
-      {/* Botão de alternar */}
+      {/* TEXTO (não botão) */}
       <p
-  className="toggle-text"
-  onClick={() => {
-    setIsLogin(!isLogin);
-    setMessage("");
-  }}
->
-  {isLogin
-    ? "Não tem conta? Cadastre-se"
-    : "Já tem conta? Entrar"}
-</p>
+        className="toggle-text"
+        onClick={() => {
+          setIsLogin(!isLogin);
+          setMessage("");
+        }}
+      >
+        {isLogin
+          ? "Não tem conta? Cadastre-se"
+          : "Já tem conta? Entrar"}
+      </p>
 
-      {/* Mensagem */}
+      {/* MENSAGEM */}
       {message && (
         <p className={`message ${isError ? "error" : "success"}`}>
           {message}

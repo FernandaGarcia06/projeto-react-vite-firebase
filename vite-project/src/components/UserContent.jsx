@@ -12,7 +12,7 @@ function UserContent({ user }) {
     <div>
       <h2>Bem-vindo 🎉</h2>
 
-      <p>Você está logado como:</p>
+      <p>Você está autenticado como:</p>
       <p><strong>{user.email}</strong></p>
 
       <button className="logout" onClick={handleLogout}>
