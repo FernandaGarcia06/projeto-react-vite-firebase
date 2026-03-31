@@ -68,3 +68,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 
+// ! prints de aplicações anexados no repositório !
+autenticado.png
+cadastro.png
+login.png
